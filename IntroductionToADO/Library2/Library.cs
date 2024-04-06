@@ -31,16 +31,32 @@ namespace Library2
 					IF NOT EXISTS 
 					(
 						SELECT author_id FROM Authors 
-						WHERE last_name='{last_name}' 
-						AND first_name='{first_name}'
+						WHERE last_name=@paramLastName 
+						AND first_name=@paramFirstName
 					)
 					BEGIN
 							INSERT INTO Authors
 									(last_name, first_name)
 							VALUES
-									('{last_name}', '{first_name}')
+									(@paramLastName, @paramFirstName)
 					END";
 				cmd = new SqlCommand(command, connection);
+				///---------------------------------------------------------------------------------------------
+				//SqlParameter parameterLastName = new SqlParameter("paramLastName", SqlDbType.NVarChar);
+				//SqlParameter parameterFirstName = new SqlParameter("paramFirstName", SqlDbType.NVarChar);
+				//parameterLastName.Value = last_name;
+				//parameterFirstName.Value = first_name;
+				//cmd.Parameters.Add(parameterLastName);
+				//cmd.Parameters.Add(parameterFirstName);
+				///---------------------------------------------------------------------------------------------
+				//SqlParameter[] values = new SqlParameter[]
+				//	{
+				//		new SqlParameter("paramLastName", last_name),
+				//		new SqlParameter("paramFirstName", first_name),
+				//	};
+				//cmd.Parameters.AddRange(values);
+				cmd.Parameters.AddWithValue("paramLastName", last_name);
+				cmd.Parameters.AddWithValue("paramFirstName", first_name);
 				cmd.ExecuteNonQuery();
 			}
 			finally

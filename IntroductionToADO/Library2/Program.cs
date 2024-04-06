@@ -18,7 +18,7 @@ namespace Library2
 										 ApplicationIntent=ReadWrite;
 										 MultiSubnetFailover=False";
 			Library library = new Library(connection_string);
-			library.InsertAuthor("Abercrombie", "Joe");
+			library.InsertAuthor("Stanne", "Michel");
 			library.SelectAuthors();
 
 			library.SelectBooks();
