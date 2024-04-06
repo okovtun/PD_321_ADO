@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Library2
 {
@@ -13,6 +14,12 @@ namespace Library2
 		string connectionString;
 		SqlConnection connection;
 		public SqlCommand cmd { get; set; }
+		public Library():this(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString)
+		{
+			//connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+			//connection = new SqlConnection(connectionString);
+			Console.WriteLine(connectionString);
+		}
 		public Library(string connectionString)
 		{
 			this.connectionString = connectionString;
