@@ -26,27 +26,65 @@ namespace Library3
 			connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
 			connection = new SqlConnection(connectionString);
 			MessageBox.Show(
-				this, 
-				connection.ConnectionString, 
-				"ConnectionString", 
-				MessageBoxButtons.OK, 
+				this,
+				connection.ConnectionString,
+				"ConnectionString",
+				MessageBoxButtons.OK,
 				MessageBoxIcon.Information);
 			richTextBoxQuery.SelectAll();
 			richTextBoxQuery.SelectionAlignment = HorizontalAlignment.Center;
+
+			string command = $@"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES";
+			SqlCommand cmd = new SqlCommand(command, connection);
+			connection.Open();
+			SqlDataReader reader = cmd.ExecuteReader();
+			while (reader.Read())
+			{
+				comboBoxTables.Items.Add(reader[0]);
+			}
+			connection.Close();
 		}
 
 		private void buttonExecute_Click(object sender, EventArgs e)
 		{
-			string cmdLine = richTextBoxQuery.Text;
-			SqlCommand cmd = new SqlCommand(cmdLine, connection);
+			string command = richTextBoxQuery.Text;
+			LoadDataToGrid(command);
+			//SqlCommand cmd = new SqlCommand(cmdLine, connection);
+			//connection.Open();
+			//reader = cmd.ExecuteReader();
+			//table = new DataTable();
+			//for (int i = 0; i < reader.FieldCount; i++) table.Columns.Add(reader.GetName(i));
+			//while (reader.Read())
+			//{
+			//	DataRow row = table.NewRow();
+			//	for (int i = 0; i < reader.FieldCount; i++) row[i] = reader[i];
+			//	table.Rows.Add(row);
+			//}
+			//dataGridView.DataSource = table;
+			//connection.Close();
+		}
+
+		private void comboBoxTables_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string tableName = comboBoxTables.SelectedItem.ToString();
+			string command = $"SELECT * FROM {tableName}";
+			LoadDataToGrid(command);
+		}
+		void LoadDataToGrid(string command)
+		{
+			SqlCommand cmd = new SqlCommand(command, connection);
 			connection.Open();
-			reader = cmd.ExecuteReader();
+			SqlDataReader reader = cmd.ExecuteReader();
 			table = new DataTable();
-			for (int i = 0; i < reader.FieldCount; i++) table.Columns.Add(reader.GetName(i));
+			for (int i = 0; i < reader.FieldCount; i++)
+				table.Columns.Add(reader.GetName(i));
 			while (reader.Read())
 			{
 				DataRow row = table.NewRow();
-				for (int i = 0; i < reader.FieldCount; i++) row[i] = reader[i];
+				for (int i = 0; i < reader.FieldCount; i++)
+				{
+					row[i] = reader[i];
+				}
 				table.Rows.Add(row);
 			}
 			dataGridView.DataSource = table;

@@ -31,6 +31,7 @@
 			this.richTextBoxQuery = new System.Windows.Forms.RichTextBox();
 			this.buttonExecute = new System.Windows.Forms.Button();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.comboBoxTables = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -63,16 +64,26 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView.Location = new System.Drawing.Point(13, 43);
+			this.dataGridView.Location = new System.Drawing.Point(13, 69);
 			this.dataGridView.Name = "dataGridView";
-			this.dataGridView.Size = new System.Drawing.Size(775, 395);
+			this.dataGridView.Size = new System.Drawing.Size(775, 369);
 			this.dataGridView.TabIndex = 2;
+			// 
+			// comboBoxTables
+			// 
+			this.comboBoxTables.FormattingEnabled = true;
+			this.comboBoxTables.Location = new System.Drawing.Point(13, 43);
+			this.comboBoxTables.Name = "comboBoxTables";
+			this.comboBoxTables.Size = new System.Drawing.Size(694, 21);
+			this.comboBoxTables.TabIndex = 3;
+			this.comboBoxTables.SelectedIndexChanged += new System.EventHandler(this.comboBoxTables_SelectedIndexChanged);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.comboBoxTables);
 			this.Controls.Add(this.dataGridView);
 			this.Controls.Add(this.buttonExecute);
 			this.Controls.Add(this.richTextBoxQuery);
@@ -88,6 +99,7 @@
 		private System.Windows.Forms.RichTextBox richTextBoxQuery;
 		private System.Windows.Forms.Button buttonExecute;
 		private System.Windows.Forms.DataGridView dataGridView;
+		private System.Windows.Forms.ComboBox comboBoxTables;
 	}
 }
 
