@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62F9BE01-E5AC-4926-BDD9-E391D2DA13C6}</ProjectGuid>
+    <ProjectGuid>{525FA533-C2CE-45AE-AC63-4933C71CA983}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PoliceDB_321</RootNamespace>
-    <AssemblyName>PoliceDB_321</AssemblyName>
+    <RootNamespace>Academy</RootNamespace>
+    <AssemblyName>Academy</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -78,14 +78,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Queries\SQLQuery1 - ResponsibilityTypes.sql" />
-    <Content Include="Queries\SQLQuery2 - Responsibilities table.sql" />
-    <Content Include="Queries\SQLQuery3 - Violations table.sql" />
-    <Content Include="Queries\SQLQuery4 - ViolationResponsibilitiesRelation.sql" />
-    <Content Include="Queries\SQLQuery5 - Responsibilities fill.sql" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
