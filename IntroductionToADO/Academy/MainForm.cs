@@ -96,6 +96,19 @@ JOIN Directions ON (direction=direction_id)
 		private void comboBoxStudentsGroup_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			LoadStudents($"group_name = '{comboBoxStudentsGroup.SelectedItem.ToString()}'");
+			setStatus();
+		}
+		private void setStatus()
+		{
+			toolStripStatusLabelStudentsCount.Text = $"Количество студентов: {dataGridViewStudents.RowCount - 1}";
+			if (comboBoxStudentsDirection.SelectedItem?.ToString() == "Все")
+			{
+				toolStripStatusLabelGroupsCount.Text = $"Всего групп: {comboBoxStudentsGroup.Items.Count - 1}";
+			}
+			else
+			{
+				toolStripStatusLabelGroupsCount.Text = $"Групп по выбранному направлению: {comboBoxStudentsGroup.Items.Count - 1}";
+			}
 		}
 
 		private void comboBoxStudentsDirection_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,6 +124,7 @@ JOIN Directions ON (direction=direction_id)
 				LoadDataToComboBox("Groups", "group_name", comboBoxStudentsGroup);
 			}
 			LoadStudents($"direction_name = '{comboBoxStudentsDirection.SelectedItem.ToString()}'");
+			setStatus();
 		}
 	}
 }
