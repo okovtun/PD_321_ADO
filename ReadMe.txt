@@ -2,9 +2,13 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMt8TiNQruU62133qbth_o9
 
 TODO:
-1. В строке состояния отобразить количество студентов, отображаемых в DataGridView;
-2. В выпадающем списке с группами, должны отображаться только группы выбранного направления;	DONE
+https://github.com/users/okovtun/projects/7/views/1
 
+TODO:
+1. В строке состояния отобразить количество студентов, отображаемых в DataGridView;				DONE
+2. В выпадающем списке с группами, должны отображаться только группы выбранного направления;	DONE
+3. Создать фурму добавления студента. Эта же форма открывается для редактирования студента;
+	https://stackoverflow.com/questions/3676014/vertically-aligning-controls-in-a-tablelayoutpanel
 DONE:
 Написать запрос создающий все таблицы в базе.
 

@@ -127,5 +127,11 @@ JOIN Directions ON (direction=direction_id)
 			LoadStudents($"direction_name = '{comboBoxStudentsDirection.SelectedItem.ToString()}'");
 			setStatus();
 		}
+
+		private void buttonAddStudent_Click(object sender, EventArgs e)
+		{
+			FormStudent formStudent = new FormStudent();
+			formStudent.ShowDialog();
+		}
 	}
 }
