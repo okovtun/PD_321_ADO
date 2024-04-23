@@ -17,9 +17,9 @@ namespace Academy
 	public partial class MainForm : Form
 	{
 		string connectionString;
-		SqlConnection connection;
-		SqlDataReader reader;
-		DataTable table;
+		//SqlConnection connection;
+		//SqlDataReader reader;
+		//DataTable table;
 		public MainForm()
 		{
 			InitializeComponent();
@@ -29,7 +29,7 @@ namespace Academy
 				Console.WriteLine(connectionString);
 				//FreeConsole();
 			}
-			connection = new SqlConnection(connectionString);
+			//connection = new SqlConnection(connectionString);
 			LoadStudents();
 			LoadDataToComboBox("Groups", "group_name", comboBoxStudentsGroup);
 			LoadDataToComboBox("Directions", "direction_name", comboBoxStudentsDirection);
