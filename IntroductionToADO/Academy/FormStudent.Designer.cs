@@ -39,15 +39,15 @@
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.labelDirection = new System.Windows.Forms.Label();
-			this.labelGroup = new System.Windows.Forms.Label();
-			this.comboBoxDirection = new System.Windows.Forms.ComboBox();
 			this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+			this.comboBoxDirection = new System.Windows.Forms.ComboBox();
+			this.labelGroup = new System.Windows.Forms.Label();
+			this.labelDirection = new System.Windows.Forms.Label();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.labelEmail = new System.Windows.Forms.Label();
-			this.labelPhone = new System.Windows.Forms.Label();
-			this.richTextBoxEmail = new System.Windows.Forms.RichTextBox();
 			this.richTextBoxPhone = new System.Windows.Forms.RichTextBox();
+			this.richTextBoxEmail = new System.Windows.Forms.RichTextBox();
+			this.labelPhone = new System.Windows.Forms.Label();
+			this.labelEmail = new System.Windows.Forms.Label();
 			this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
 			this.buttonSave = new System.Windows.Forms.Button();
 			this.buttonCancel = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
 			// richTextBoxLastName
 			// 
 			this.richTextBoxLastName.Location = new System.Drawing.Point(141, 3);
-			this.richTextBoxLastName.MaxLength = 256;
+			this.richTextBoxLastName.MaxLength = 128;
 			this.richTextBoxLastName.Multiline = false;
 			this.richTextBoxLastName.Name = "richTextBoxLastName";
 			this.richTextBoxLastName.Size = new System.Drawing.Size(200, 22);
@@ -101,7 +101,7 @@
 			// richTextBoxFirstName
 			// 
 			this.richTextBoxFirstName.Location = new System.Drawing.Point(141, 33);
-			this.richTextBoxFirstName.MaxLength = 256;
+			this.richTextBoxFirstName.MaxLength = 128;
 			this.richTextBoxFirstName.Multiline = false;
 			this.richTextBoxFirstName.Name = "richTextBoxFirstName";
 			this.richTextBoxFirstName.Size = new System.Drawing.Size(200, 22);
@@ -111,7 +111,7 @@
 			// richTextBoxMiddleName
 			// 
 			this.richTextBoxMiddleName.Location = new System.Drawing.Point(141, 63);
-			this.richTextBoxMiddleName.MaxLength = 256;
+			this.richTextBoxMiddleName.MaxLength = 128;
 			this.richTextBoxMiddleName.Multiline = false;
 			this.richTextBoxMiddleName.Name = "richTextBoxMiddleName";
 			this.richTextBoxMiddleName.Size = new System.Drawing.Size(200, 22);
@@ -175,15 +175,23 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(347, 60);
 			this.tableLayoutPanel2.TabIndex = 9;
 			// 
-			// labelDirection
+			// comboBoxGroup
 			// 
-			this.labelDirection.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.labelDirection.AutoSize = true;
-			this.labelDirection.Location = new System.Drawing.Point(8, 8);
-			this.labelDirection.Name = "labelDirection";
-			this.labelDirection.Size = new System.Drawing.Size(127, 13);
-			this.labelDirection.TabIndex = 10;
-			this.labelDirection.Text = "Направление обучения:";
+			this.comboBoxGroup.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.comboBoxGroup.FormattingEnabled = true;
+			this.comboBoxGroup.Location = new System.Drawing.Point(141, 34);
+			this.comboBoxGroup.Name = "comboBoxGroup";
+			this.comboBoxGroup.Size = new System.Drawing.Size(200, 21);
+			this.comboBoxGroup.TabIndex = 10;
+			// 
+			// comboBoxDirection
+			// 
+			this.comboBoxDirection.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.comboBoxDirection.FormattingEnabled = true;
+			this.comboBoxDirection.Location = new System.Drawing.Point(141, 4);
+			this.comboBoxDirection.Name = "comboBoxDirection";
+			this.comboBoxDirection.Size = new System.Drawing.Size(200, 21);
+			this.comboBoxDirection.TabIndex = 10;
 			// 
 			// labelGroup
 			// 
@@ -195,23 +203,15 @@
 			this.labelGroup.TabIndex = 10;
 			this.labelGroup.Text = "Группа:";
 			// 
-			// comboBoxDirection
+			// labelDirection
 			// 
-			this.comboBoxDirection.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.comboBoxDirection.FormattingEnabled = true;
-			this.comboBoxDirection.Location = new System.Drawing.Point(141, 4);
-			this.comboBoxDirection.Name = "comboBoxDirection";
-			this.comboBoxDirection.Size = new System.Drawing.Size(200, 21);
-			this.comboBoxDirection.TabIndex = 10;
-			// 
-			// comboBoxGroup
-			// 
-			this.comboBoxGroup.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.comboBoxGroup.FormattingEnabled = true;
-			this.comboBoxGroup.Location = new System.Drawing.Point(141, 34);
-			this.comboBoxGroup.Name = "comboBoxGroup";
-			this.comboBoxGroup.Size = new System.Drawing.Size(200, 21);
-			this.comboBoxGroup.TabIndex = 10;
+			this.labelDirection.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.labelDirection.AutoSize = true;
+			this.labelDirection.Location = new System.Drawing.Point(8, 8);
+			this.labelDirection.Name = "labelDirection";
+			this.labelDirection.Size = new System.Drawing.Size(127, 13);
+			this.labelDirection.TabIndex = 10;
+			this.labelDirection.Text = "Направление обучения:";
 			// 
 			// tableLayoutPanel3
 			// 
@@ -230,25 +230,16 @@
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(347, 60);
 			this.tableLayoutPanel3.TabIndex = 10;
 			// 
-			// labelEmail
+			// richTextBoxPhone
 			// 
-			this.labelEmail.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.labelEmail.AutoSize = true;
-			this.labelEmail.Location = new System.Drawing.Point(97, 8);
-			this.labelEmail.Name = "labelEmail";
-			this.labelEmail.Size = new System.Drawing.Size(38, 13);
-			this.labelEmail.TabIndex = 11;
-			this.labelEmail.Text = "E-mail:";
-			// 
-			// labelPhone
-			// 
-			this.labelPhone.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.labelPhone.AutoSize = true;
-			this.labelPhone.Location = new System.Drawing.Point(80, 38);
-			this.labelPhone.Name = "labelPhone";
-			this.labelPhone.Size = new System.Drawing.Size(55, 13);
-			this.labelPhone.TabIndex = 11;
-			this.labelPhone.Text = "Телефон:";
+			this.richTextBoxPhone.Location = new System.Drawing.Point(141, 33);
+			this.richTextBoxPhone.MaxLength = 17;
+			this.richTextBoxPhone.Multiline = false;
+			this.richTextBoxPhone.Name = "richTextBoxPhone";
+			this.richTextBoxPhone.Size = new System.Drawing.Size(200, 22);
+			this.richTextBoxPhone.TabIndex = 11;
+			this.richTextBoxPhone.Text = "";
+			this.richTextBoxPhone.WordWrap = false;
 			// 
 			// richTextBoxEmail
 			// 
@@ -260,16 +251,25 @@
 			this.richTextBoxEmail.TabIndex = 11;
 			this.richTextBoxEmail.Text = "";
 			// 
-			// richTextBoxPhone
+			// labelPhone
 			// 
-			this.richTextBoxPhone.Location = new System.Drawing.Point(141, 33);
-			this.richTextBoxPhone.MaxLength = 17;
-			this.richTextBoxPhone.Multiline = false;
-			this.richTextBoxPhone.Name = "richTextBoxPhone";
-			this.richTextBoxPhone.Size = new System.Drawing.Size(200, 22);
-			this.richTextBoxPhone.TabIndex = 11;
-			this.richTextBoxPhone.Text = "";
-			this.richTextBoxPhone.WordWrap = false;
+			this.labelPhone.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.labelPhone.AutoSize = true;
+			this.labelPhone.Location = new System.Drawing.Point(80, 38);
+			this.labelPhone.Name = "labelPhone";
+			this.labelPhone.Size = new System.Drawing.Size(55, 13);
+			this.labelPhone.TabIndex = 11;
+			this.labelPhone.Text = "Телефон:";
+			// 
+			// labelEmail
+			// 
+			this.labelEmail.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.labelEmail.AutoSize = true;
+			this.labelEmail.Location = new System.Drawing.Point(97, 8);
+			this.labelEmail.Name = "labelEmail";
+			this.labelEmail.Size = new System.Drawing.Size(38, 13);
+			this.labelEmail.TabIndex = 11;
+			this.labelEmail.Text = "E-mail:";
 			// 
 			// pictureBoxPhoto
 			// 
@@ -324,7 +324,7 @@
 			this.Controls.Add(this.tableLayoutPanel3);
 			this.Controls.Add(this.tableLayoutPanel2);
 			this.Controls.Add(this.tableLayoutPanel1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "FormStudent";
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
 			this.Text = "Студент";

@@ -4,11 +4,13 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIMt8TiNQruU62133qbth_o9
 TODO:
 https://github.com/users/okovtun/projects/7/views/1
 
-TODO:
+DONE:
 1. В строке состояния отобразить количество студентов, отображаемых в DataGridView;				DONE
 2. В выпадающем списке с группами, должны отображаться только группы выбранного направления;	DONE
 3. Создать фурму добавления студента. Эта же форма открывается для редактирования студента;
 	https://stackoverflow.com/questions/3676014/vertically-aligning-controls-in-a-tablelayoutpanel
+	https://stackoverflow.com/questions/16822138/fit-image-into-picturebox
+
 DONE:
 Написать запрос создающий все таблицы в базе.
 
