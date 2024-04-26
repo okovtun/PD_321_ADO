@@ -31,8 +31,8 @@ namespace Academy
 			}
 			//connection = new SqlConnection(connectionString);
 			LoadStudents();
-			LoadDataToComboBox("Groups", "group_name", comboBoxStudentsGroup);
-			LoadDataToComboBox("Directions", "direction_name", comboBoxStudentsDirection);
+			FormDataLoader.LoadDataToComboBox("Groups", "group_name", comboBoxStudentsGroup, null, "Все");
+			FormDataLoader.LoadDataToComboBox("Directions", "direction_name", comboBoxStudentsDirection, null, "Все");
 		}
 
 		void LoadStudents(string condition = null)
@@ -67,6 +67,7 @@ namespace Academy
 			//			connection.Close();
 
 			string columns = $@"
+[ID]			= stud_id,
 [Ф.И.О.]		= FORMATMESSAGE('%s %s %s', last_name, first_name, middle_name),
 [Дата рожения]	= birth_date,
 [Группа]		= group_name,
@@ -78,33 +79,35 @@ namespace Academy
 			else condition = relations;
 			Connector connector = new Connector();
 			dataGridViewStudents.DataSource = connector.LoadColumnFromTable(columns, tables, condition);
+			dataGridViewStudents.Columns[0].Visible = false;
+			setStatus();
 		}
-		void LoadDataToComboBox(string tables, string column, ComboBox list, string condition = null)
-		{
-			list.Items.Clear();
-			list.Items.Add("Все");
-			list.SelectedIndex = 0;
-			//string cmd = $"SELECT {column} FROM {tables}";
-			//if (condition != null)
-			//{
-			//	cmd += $" WHERE {condition}";
-			//}
-			//Console.WriteLine(cmd);
-			//connection.Open();
-			//SqlCommand command = new SqlCommand(cmd, connection);
-			//reader = command.ExecuteReader();
-			//while (reader.Read())
-			//{
-			//	list.Items.Add(reader[0]);
-			//}
-			//connection.Close();
-			Connector connector = new Connector();
-			connector.LoadColumnFromTable(column, tables, condition);
-			string[] items = new string[connector.DataTable.Rows.Count];
-			for (int i = 0; i < items.Length; i++)
-				items[i] = connector.DataTable.Rows[i][0].ToString();
-			list.Items.AddRange(items);
-		}
+		//void LoadDataToComboBox(string tables, string column, ComboBox list, string condition = null)
+		//{
+		//	list.Items.Clear();
+		//	list.Items.Add("Все");
+		//	list.SelectedIndex = 0;
+		//	//string cmd = $"SELECT {column} FROM {tables}";
+		//	//if (condition != null)
+		//	//{
+		//	//	cmd += $" WHERE {condition}";
+		//	//}
+		//	//Console.WriteLine(cmd);
+		//	//connection.Open();
+		//	//SqlCommand command = new SqlCommand(cmd, connection);
+		//	//reader = command.ExecuteReader();
+		//	//while (reader.Read())
+		//	//{
+		//	//	list.Items.Add(reader[0]);
+		//	//}
+		//	//connection.Close();
+		//	Connector connector = new Connector();
+		//	connector.LoadColumnFromTable(column, tables, condition);
+		//	string[] items = new string[connector.DataTable.Rows.Count];
+		//	for (int i = 0; i < items.Length; i++)
+		//		items[i] = connector.DataTable.Rows[i][0].ToString();
+		//	list.Items.AddRange(items);
+		//}
 		[DllImport("kernel32.dll", SetLastError = true)]
 		[return: MarshalAs(UnmanagedType.Bool)]
 		static extern bool AllocConsole();
@@ -123,26 +126,28 @@ namespace Academy
 			toolStripStatusLabelStudentsCount.Text = $"Количество студентов: {dataGridViewStudents.RowCount - 1}";
 			if (comboBoxStudentsDirection.SelectedItem?.ToString() == "Все")
 			{
-				toolStripStatusLabelGroupsCount.Text = $"Всего групп: {comboBoxStudentsGroup.Items.Count - 1}";
+				toolStripStatusLabelGroupsCount.Text = $"Всего групп: {comboBoxStudentsGroup.Items.Count}";
 			}
 			else
 			{
-				toolStripStatusLabelGroupsCount.Text = $"Групп по выбранному направлению: {comboBoxStudentsGroup.Items.Count - 1}";
+				toolStripStatusLabelGroupsCount.Text = $"Групп по выбранному направлению: {comboBoxStudentsGroup.Items.Count}";
 			}
 		}
 
 		private void comboBoxStudentsDirection_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//comboBoxStudentsGroup.Items.Clear();
-			if (comboBoxStudentsDirection.SelectedIndex > 0)
-			{
-				string condition = $"direction = direction_id AND direction_name='{comboBoxStudentsDirection.SelectedItem.ToString()}'";
-				LoadDataToComboBox("Groups, Directions", "group_name", comboBoxStudentsGroup, condition);
-			}
-			else
-			{
-				LoadDataToComboBox("Groups", "group_name", comboBoxStudentsGroup);
-			}
+			///--------------------------------------
+			//if (comboBoxStudentsDirection.SelectedIndex > 0)
+			//{
+			//	string condition = $"direction = direction_id AND direction_name='{comboBoxStudentsDirection.SelectedItem.ToString()}'";
+			//	LoadDataToComboBox("Groups, Directions", "group_name", comboBoxStudentsGroup, condition);
+			//}
+			//else
+			//{
+			//	LoadDataToComboBox("Groups", "group_name", comboBoxStudentsGroup);
+			//}
+			FormDataLoader.GroupFilter(comboBoxStudentsDirection, comboBoxStudentsGroup);
 			LoadStudents($"direction_name = '{comboBoxStudentsDirection.SelectedItem.ToString()}'");
 			setStatus();
 		}
@@ -150,7 +155,14 @@ namespace Academy
 		private void buttonAddStudent_Click(object sender, EventArgs e)
 		{
 			FormStudent formStudent = new FormStudent();
-			formStudent.ShowDialog();
+			DialogResult result = formStudent.ShowDialog();
+			if (result == DialogResult.OK) LoadStudents();
 		}
+
+		private void dataGridViewStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			FormStudent form = new FormStudent();
+		}
+
 	}
 }

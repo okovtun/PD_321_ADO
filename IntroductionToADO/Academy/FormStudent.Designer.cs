@@ -36,7 +36,7 @@
 			this.richTextBoxFirstName = new System.Windows.Forms.RichTextBox();
 			this.richTextBoxMiddleName = new System.Windows.Forms.RichTextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.comboBoxGroup = new System.Windows.Forms.ComboBox();
@@ -128,19 +128,19 @@
 			this.label1.TabIndex = 6;
 			this.label1.Text = "Дата рождения:";
 			// 
-			// dateTimePicker1
+			// dateTimePickerBirthDate
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(141, 93);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-			this.dateTimePicker1.TabIndex = 7;
+			this.dateTimePickerBirthDate.Location = new System.Drawing.Point(141, 93);
+			this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+			this.dateTimePickerBirthDate.Size = new System.Drawing.Size(200, 20);
+			this.dateTimePickerBirthDate.TabIndex = 7;
 			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-			this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 3);
+			this.tableLayoutPanel1.Controls.Add(this.dateTimePickerBirthDate, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 3);
 			this.tableLayoutPanel1.Controls.Add(this.labelFirstName, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.labelLastName, 0, 0);
@@ -192,6 +192,7 @@
 			this.comboBoxDirection.Name = "comboBoxDirection";
 			this.comboBoxDirection.Size = new System.Drawing.Size(200, 21);
 			this.comboBoxDirection.TabIndex = 10;
+			this.comboBoxDirection.SelectedIndexChanged += new System.EventHandler(this.comboBoxDirection_SelectedIndexChanged);
 			// 
 			// labelGroup
 			// 
@@ -292,6 +293,7 @@
 			this.buttonSave.TabIndex = 12;
 			this.buttonSave.Text = "Сохранить";
 			this.buttonSave.UseVisualStyleBackColor = true;
+			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 			// 
 			// buttonCancel
 			// 
@@ -311,6 +313,7 @@
 			this.buttonBrows.TabIndex = 14;
 			this.buttonBrows.Text = "Обзор";
 			this.buttonBrows.UseVisualStyleBackColor = true;
+			this.buttonBrows.Click += new System.EventHandler(this.buttonBrows_Click);
 			// 
 			// FormStudent
 			// 
@@ -348,7 +351,7 @@
 		private System.Windows.Forms.RichTextBox richTextBoxFirstName;
 		private System.Windows.Forms.RichTextBox richTextBoxMiddleName;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dateTimePickerBirthDate;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.ComboBox comboBoxGroup;
