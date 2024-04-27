@@ -1,5 +1,6 @@
 ﻿https://github.com/okovtun/PD_321_ADO.git
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMt8TiNQruU62133qbth_o9
+https://auto.ria.com/auto_bmw_7_series_35482215.html
 
 TODO:
 https://github.com/users/okovtun/projects/7/views/1
